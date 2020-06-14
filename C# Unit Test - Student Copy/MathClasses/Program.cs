@@ -10,12 +10,32 @@ namespace MathClasses
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
+            byte red = 255;
+            byte green = 200;
+            byte blue = 150;
+            byte alpha = 2;
+
+            Colour colour = new Colour();
+            colour.SetRed(red);
+            colour.SetGreen(green);
+            colour.SetBlue(blue);
+            colour.SetAlpha(alpha);
+
+            Console.WriteLine("Set Red too " + red + ". Retreived: " + colour.GetRed());
+            Console.WriteLine("Set Green too " + green + ". Retreived: " + colour.GetGreen());
+            Console.WriteLine("Set Blue too " + blue + ". Retreived: " + colour.GetBlue());
+            Console.WriteLine("Set Alpha too " + alpha + ". Retreived: " + colour.GetAlpha());
+
+
+            colour.SetBlue(red);
+            Console.WriteLine("Set Red too " + red + ". Retreived: " + colour.GetRed());
+            Console.WriteLine("Set Green too " + green + ". Retreived: " + colour.GetGreen());
+            Console.WriteLine("Set Blue too " + blue + ". Retreived: " + colour.GetBlue());
+            Console.WriteLine("Set Alpha too " + alpha + ". Retreived: " + colour.GetAlpha());
             Console.ReadKey();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            Console.ReadKey();
+ 
         }
     }
 }
