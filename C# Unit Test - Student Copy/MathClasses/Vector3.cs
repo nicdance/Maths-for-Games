@@ -73,21 +73,34 @@ namespace MathClasses
 
             result = (float)Math.Sqrt((double)(xValue+yValue+zValue));
             return result;
-
         }
+
+        public float MagnitudeSqr()
+        {
+            return (x * x + y * y + z * z);
+        }
+
         public Vector3 Cross(Vector3 vectorToCross)
         {
             return new Vector3(
                                   y * vectorToCross.z - z * vectorToCross.y,
                                   z * vectorToCross.x - x * vectorToCross.z,
-                                  x * vectorToCross.y - y * vectorToCross.z
+                                  x * vectorToCross.y - y * vectorToCross.x
                               );
         }
+
         public float Dot(Vector3 vectorToDot)
         {
             return  x*vectorToDot.x + 
                     y*vectorToDot.y +
                     z*vectorToDot.z;
+        }
+
+        public void Normalize() {
+            float m = Magnitude();
+            this.x /= m;
+            this.y /= m;
+            this.z /= m;
         }
     }
 }

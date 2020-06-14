@@ -188,14 +188,14 @@ namespace UnitTestProject
         //    Assert.AreEqual(mag4, 863.453735352f, DEFAULT_TOLERANCE);
         //}
 
-        //[TestMethod]
-        //public void Vector3Normalise()
-        //{
-        //    Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
-        //    v3a.Normalize();
+        [TestMethod]
+        public void Vector3Normalise()
+        {
+            Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
+            v3a.Normalize();
 
-        //    Assert.IsTrue(compare(v3a, new Vector3(0.0156349f, -0.0558571f, 0.998316f)));
-        //}
+            Assert.IsTrue(compare(v3a, new Vector3(0.0156349f, -0.0558571f, 0.998316f)));
+        }
 
         //[TestMethod]
         //public void Vector4Normalise()
@@ -386,7 +386,7 @@ namespace UnitTestProject
         //                              0, 1, 0, 0,
         //                              0, 0, 1, 0,
         //                              55, 44, 99, 1);
-            
+
         //    Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
 
         //    Vector4 v4c = m4b * v4a;
@@ -406,7 +406,7 @@ namespace UnitTestProject
         //    Vector4 v4c = m4c * v4a;
         //    Assert.IsTrue(compare(v4c, new Vector4(86.0490112305f, 83.2981109619f, 45, 1)));
         //}
-        
+
         //[TestMethod]
         //public void Vector3MatrixTranslation3()
         //{
