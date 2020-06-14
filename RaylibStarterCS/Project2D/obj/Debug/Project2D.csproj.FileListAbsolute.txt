@@ -1,0 +1,7 @@
+D:\GitHub\Maths for Games\RaylibStarterCS\Project2D\bin\Debug\Project2D.exe.config
+D:\GitHub\Maths for Games\RaylibStarterCS\Project2D\bin\Debug\Project2D.exe
+D:\GitHub\Maths for Games\RaylibStarterCS\Project2D\bin\Debug\Project2D.pdb
+D:\GitHub\Maths for Games\RaylibStarterCS\Project2D\obj\Debug\Project2D.csprojAssemblyReference.cache
+D:\GitHub\Maths for Games\RaylibStarterCS\Project2D\obj\Debug\Project2D.csproj.CoreCompileInputs.cache
+D:\GitHub\Maths for Games\RaylibStarterCS\Project2D\obj\Debug\Project2D.exe
+D:\GitHub\Maths for Games\RaylibStarterCS\Project2D\obj\Debug\Project2D.pdb
