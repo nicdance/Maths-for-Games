@@ -34,6 +34,20 @@ namespace MathClasses
             Console.WriteLine("Set Alpha too " + alpha + ". Retreived: " + colour.GetAlpha());
             Console.ReadKey();
 
+
+            Matrix3 m3a = new Matrix3();
+            m3a.SetRotateX(3.98f);
+
+            Console.WriteLine(m3a.ToString());
+            Console.WriteLine();
+            Matrix3 m3c = new Matrix3();
+            m3c.SetRotateZ(9.62f);
+            Console.WriteLine(m3c.ToString());
+            Console.WriteLine();
+
+            Matrix3 m3d = m3a * m3c;
+            Console.WriteLine(m3d.ToString());
+            Console.WriteLine();
             Console.ReadKey();
  
         }
