@@ -66,19 +66,26 @@ namespace MathClasses
                                 valueThirteen, valueFourteen, valueFifteen, valueSixteen);
         }
 
-        //public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
-        //{
-        //    float valueOne = (lhs.m1 * rhs.x) + (lhs.m4 * rhs.y) + (lhs.m7 * rhs.z);
-        //    float valueTwo = (lhs.m2 * rhs.x) + (lhs.m5 * rhs.y) + (lhs.m8 * rhs.z);
-        //    float valueThree = (lhs.m3 * rhs.x) + (lhs.m6 * rhs.y) + (lhs.m9 * rhs.z);
-        //    return new Vector3(valueOne, valueTwo, valueThree);
-        //}
+        /*
+         *  1  2  3  4  x
+         *  5  6  7  8  y
+         *  9  10 11 12 z
+         *  13 14 15 16 w
+         */
+        public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
+        {
+            float valueOne = (lhs.m1 * rhs.x) + (lhs.m5 * rhs.y) + (lhs.m9 * rhs.z) + (lhs.m13 * rhs.w);
+            float valueTwo = (lhs.m2 * rhs.x) + (lhs.m6 * rhs.y) + (lhs.m10 * rhs.z) + (lhs.m14 * rhs.w);
+            float valueThree = (lhs.m3 * rhs.x) + (lhs.m7 * rhs.y) + (lhs.m11 * rhs.z) + (lhs.m15 * rhs.w);
+            float valueFour = (lhs.m4 * rhs.x) + (lhs.m8 * rhs.y) + (lhs.m12 * rhs.z) + (lhs.m16 * rhs.w);
+            return new Vector4(valueOne, valueTwo, valueThree, valueFour);
+        }
 
 
-        //public static Vector3 operator *(Vector3 lhs, Matrix3 rhs)
-        //{
-        //    return rhs * lhs;
-        //}
+        public static Vector4 operator *(Vector4 lhs, Matrix4 rhs)
+        {
+            return rhs * lhs;
+        }
 
         public void SetRotateX(float value)
         {
@@ -95,7 +102,7 @@ namespace MathClasses
         {
             m1 = (float)Math.Cos(value);  m2 = 0; m3 = (float)-Math.Sin(value); m4 = 0;
             m5 = 0;                       m6 = 1; m7 = 0;                       m8 = 0;
-            m9 = (float)-Math.Sin(value); m10= 0; m11= (float)Math.Cos(value);  m12= 0;
+            m9 = (float)Math.Sin(value); m10= 0; m11= (float)Math.Cos(value);  m12= 0;
             m13 = 0;                      m14= 0; m15= 0;                       m16= 1;
         }
 

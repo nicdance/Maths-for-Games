@@ -83,7 +83,7 @@ namespace MathClasses
             Matrix4 m4b =new Matrix4(1, 0, 0, 0, 0, -0.210796f, -0.97753f, 0, 0, 0.97753f, -0.210796f, 0, 0, 0, 0, 1);
 
 
-            Console.WriteLine("Matrix4");
+            Console.WriteLine("Matrix4 Rotate X");
             Console.WriteLine("result");
             Console.WriteLine(m4a.ToString());
             Console.WriteLine();
@@ -92,6 +92,39 @@ namespace MathClasses
             Console.WriteLine("expecte result");
             Console.WriteLine();
             Console.ReadKey();
+
+
+            Console.WriteLine("Matrix4SetRotateZ()");
+            Matrix4 m4z = new Matrix4();
+            m4z.SetRotateZ(0.72f);
+
+            Console.WriteLine("result");
+            Console.WriteLine(m4z.ToString());
+            Console.WriteLine();
+            Matrix4 m4z2 = new Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+
+            Console.WriteLine(" Expected result");
+            Console.WriteLine(m4z2.ToString());
+            Console.WriteLine();
+            Console.ReadKey();
+
+
+
+            Console.WriteLine("Matrix4SetRotateY()");
+            Matrix4 m4y = new Matrix4();
+            m4y.SetRotateY(-2.6f);
+
+            Console.WriteLine("result");
+            Console.WriteLine(m4y.ToString());
+            Console.WriteLine();
+            Matrix4 m4y2 = new Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1);
+
+            Console.WriteLine(" Expected result");
+            Console.WriteLine(m4y.ToString());
+            Console.WriteLine();
+            Console.ReadKey();
+
+
 
             Matrix4 m4c = new Matrix4();
             m4c.SetRotateY(-2.6f);
