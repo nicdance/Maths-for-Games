@@ -1,7 +1,7 @@
-D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\bin\Debug\MathClasses.exe.config
-D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\bin\Debug\MathClasses.exe
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\bin\Debug\MathClasses.pdb
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\obj\Debug\MathClasses.csprojAssemblyReference.cache
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\obj\Debug\MathClasses.csproj.CoreCompileInputs.cache
-D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\obj\Debug\MathClasses.exe
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\obj\Debug\MathClasses.pdb
+D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\bin\Debug\MathClasses.dll.config
+D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\bin\Debug\MathClasses.dll
+D:\GitHub\Maths for Games\C# Unit Test - Student Copy\MathClasses\obj\Debug\MathClasses.dll
