@@ -31,16 +31,19 @@ namespace MathClasses
         {
             return new Vector3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z);
         }
+
         // Set up the operator to subtract 2 vectors
         public static Vector3 operator -(Vector3 lhs, Vector3 rhs)
         {
             return new Vector3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z);
         }
+        
         // Set up the operator to multiplu a vector by a float
         public static Vector3 operator *(Vector3 lhs, float rhs)
         {
             return new Vector3(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs);
         }
+        
         // Set up the operator to multiply a float by a vector
         public static Vector3 operator *(float lhs, Vector3 rhs)
         {

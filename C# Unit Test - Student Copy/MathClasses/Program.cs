@@ -70,7 +70,7 @@ namespace MathClasses
             Matrix3 m3d = m3a * m3c;
             Console.WriteLine(m3d.ToString());
             Console.WriteLine();
-            Console.WriteLine("expecte result");
+            Console.WriteLine("expectes result");
             Matrix3 m3f = new Matrix3(-0.981004655361f, 0.129707172513f, 0.14424264431f, 0.193984255195f, 0.655946731567f, 0.729454636574f, 0, 0.743579149246f, -0.668647944927f);
             Console.WriteLine(m3f.ToString());
             Console.WriteLine();
@@ -102,7 +102,7 @@ namespace MathClasses
             Matrix4 m4e = m4d * m4c;
 
             Matrix4 m4f =new Matrix4(-0.644213855267f, -0.565019249916f, 0.515501439571f, 0, -0.659384667873f, 0.751805722713f, 0, 0, -0.387556940317f, -0.339913755655f, -0.856888711452f, 0, 0, 0, 0, 1);
-            Console.WriteLine("Matrix4");
+            Console.WriteLine("Matrix4 *");
             Console.WriteLine("result");
             Console.WriteLine(m4e.ToString());
             Console.WriteLine();

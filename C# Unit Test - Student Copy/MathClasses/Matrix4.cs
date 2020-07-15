@@ -59,10 +59,10 @@ namespace MathClasses
             float valueFourteen = rhs.m13 * lhs.m2 + rhs.m14 * lhs.m6 + rhs.m15 * lhs.m10 + rhs.m16 * lhs.m14;
             float valueFifteen = rhs.m13 * lhs.m3 + rhs.m14 * lhs.m7 + rhs.m15 * lhs.m11 + rhs.m16 * lhs.m15;
             float valueSixteen = rhs.m13 * lhs.m4 + rhs.m14 * lhs.m8 + rhs.m15 * lhs.m12 + rhs.m16 * lhs.m16;
-  
-            return new Matrix4( valueOne, valueTwo, valueThree, valueFour, 
-                                valueFive, valueSix, valueSeven, valueEight, 
-                                valueNine, valueTen, valueEleven, valueTwelve, 
+
+            return new Matrix4(valueOne, valueTwo, valueThree, valueFour,
+                                valueFive, valueSix, valueSeven, valueEight,
+                                valueNine, valueTen, valueEleven, valueTwelve,
                                 valueThirteen, valueFourteen, valueFifteen, valueSixteen);
         }
 
