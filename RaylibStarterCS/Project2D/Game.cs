@@ -24,8 +24,8 @@ namespace Project2D
         private float mag = 0;
         private int frames;
 
-        private float deltaTime = 0.005f;
-        private float speed = 100f;
+        private float deltaTime = 0.1f;
+        private float speed = 1000f;
         //private float followSpeed = 75f;
 
         //Vector3 point;
@@ -79,19 +79,23 @@ namespace Project2D
             frames++;
             if (IsKeyDown(KeyboardKey.KEY_A))
             {
-                player.Rotate(new Vector3(-1, 0, 0), speed, deltaTime);
+                player.Rotate(-10f, speed, deltaTime);
+
             }
             if (IsKeyDown(KeyboardKey.KEY_D))
             {
-                player.Rotate(new Vector3(1, 0, 0), speed, deltaTime);
+                player.Rotate(10f, speed, deltaTime);
             }
             if (IsKeyDown(KeyboardKey.KEY_W))
             {
-                player.Move(new Vector3(0, -1, 0), speed, deltaTime);
+                player.Move(new Vector3(0, 1, 0), speed, deltaTime);
+
+               // player.SetMoving(1);
             }
             if (IsKeyDown(KeyboardKey.KEY_S))
             {
-                player.Move(new Vector3(0, 1, 0), speed, deltaTime);
+                player.Move(new Vector3(0, -1, 0), speed, deltaTime);
+               // player.SetMoving(-1);
             }
 
             //Vector3 direction = followPoint - point; 
@@ -122,11 +126,11 @@ namespace Project2D
             //DrawTexture(player, (int)point.x - (playerTexture.width / 2), (int)point.y - (playerTexture.height / 2), Color.WHITE);
             //DrawTexture(playerGunTexture, (int)point.x - (playerGunTexture.width / 2), (int)point.y, Color.WHITE);
             //DrawTexture(player.GetTankTexture(), (int)player.GetPosition().x, (int)player.GetPosition().y, Color.WHITE);
-            DrawTextureEx(player.GetTankTexture(), new Vector2(player.GetPosition().x, player.GetPosition().y), 0f, 1f, Color.WHITE);
+            DrawTextureEx(player.GetTankTexture(), new Vector2(player.GetPosition().x, player.GetPosition().y),player.GetRotation(), 1f, Color.WHITE);
             //DrawTexture(player.GetGunTexture(), (int)player.GetGunPosition().x, (int)player.GetGunPosition().y, Color.WHITE);
-            DrawTextureEx(player.GetGunTexture(), new Vector2(player.GetGunPosition().x, player.GetGunPosition().y), 0f, 1f, Color.WHITE);
+         //   DrawTextureEx(player.GetGunTexture(), new Vector2(player.GetGunPosition().x, player.GetGunPosition().y), 0f, 1f, Color.WHITE);
 
-
+          
             //  DrawCircle((int)point.x, (int)point.y, 10, Color.GREEN); // Draw ring
             //  DrawCircle((int)followPoint.x, (int)followPoint.y, 10, Color.RED); // Draw ring
 

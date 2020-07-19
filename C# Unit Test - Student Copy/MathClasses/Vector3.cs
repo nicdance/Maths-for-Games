@@ -105,5 +105,11 @@ namespace MathClasses
             this.y /= m;
             this.z /= m;
         }
+        public override string ToString()
+        {
+
+            return x + "," + y + "," + z;
+        }
     }
+
 }
