@@ -34,6 +34,18 @@ namespace MathClasses
              *  m7 m8 m9	m7 m8 m9
              */
 
+            //float valueOne = lhs.m1 * rhs.m1 + lhs.m4 * rhs.m2 + lhs.m7 * rhs.m3;
+            //float valueTwo = lhs.m2 * rhs.m1 + lhs.m5 * rhs.m2 + lhs.m8 * rhs.m3;
+            //float valueThree = lhs.m3 * rhs.m1 + lhs.m6 * rhs.m2 + lhs.m9 * rhs.m3;
+
+            //float valueFour = lhs.m1 * rhs.m4 + lhs.m4 * rhs.m5 + lhs.m7 * rhs.m6;
+            //float valueFive = lhs.m2 * rhs.m4 + lhs.m5 * rhs.m5 + lhs.m8 * rhs.m6;
+            //float valueSix = lhs.m3 * rhs.m4 + lhs.m6 * rhs.m5 + lhs.m9 * rhs.m6;
+
+            //float valueSeven = lhs.m1 * rhs.m7 + lhs.m4 * rhs.m8 + lhs.m7 * rhs.m9;
+            //float valueEight = lhs.m2 * rhs.m7 + lhs.m5 * rhs.m8 + lhs.m8 * rhs.m9;
+            //float valueNine = lhs.m3* rhs.m7 + lhs.m6 * rhs.m8 + lhs.m9 * rhs.m9;
+
             float valueOne = rhs.m1 * lhs.m1 + rhs.m2 * lhs.m4 + rhs.m3 * lhs.m7;
             float valueTwo = rhs.m1 * lhs.m2 + rhs.m2 * lhs.m5 + rhs.m3 * lhs.m8;
             float valueThree = rhs.m1 * lhs.m3 + rhs.m2 * lhs.m6 + rhs.m3 * lhs.m9;
@@ -43,7 +55,7 @@ namespace MathClasses
             float valueSeven = rhs.m7 * lhs.m1 + rhs.m8 * lhs.m4 + rhs.m9 * lhs.m7;
             float valueEight = rhs.m7 * lhs.m2 + rhs.m8 * lhs.m5 + rhs.m9 * lhs.m8;
             float valueNine = rhs.m7 * lhs.m3 + rhs.m8 * lhs.m6 + rhs.m9 * lhs.m9;
- 
+
             return new Matrix3(valueOne, valueTwo, valueThree,
                                valueFour, valueFive, valueSix,
                                valueSeven, valueEight, valueNine);
@@ -96,6 +108,25 @@ namespace MathClasses
             //m4 = (float)Math.Sin(value); m5 = (float)Math.Cos(value);   m6 = 0;
             //m7 = 0;                      m8 = 0;                        m9 = 1;
         }
+
+
+        public void SetScaled(float x, float y, float z)
+        {
+            m1 = x; m2 = 0; m3 = 0;
+            m4 = 0; m5 = y; m6 = 0;
+            m7 = 0; m8 = 0; m9 = z;
+        }
+
+        public void SetTranslation(float x, float y)
+        {
+            m7 = x; m8 = y; m9 = 1;
+        }
+
+        public void Translate(float x, float y)
+        {
+            m7 += x; m8 += y;
+        }
+
 
         public override string ToString() {
 
