@@ -14,7 +14,21 @@ namespace Project2D
 {
     class Tank
     {
+        public Gun topGun;
         private Texture2D tankTexture;
+        Image image = new Image();
+
+        //protected Matrix3 transform = new Matrix3();
+
+        //public Matrix3 Transform
+        //{
+        //    get { return transform; }
+        //}
+
+
+        public Matrix3 localTransform = new Matrix3();
+        public Matrix3 globalTransform = new Matrix3();
+
         private Texture2D tankGunTexture;
         private Texture2D bulletTexture;
         private Vector3 centerOfTank;
@@ -36,37 +50,52 @@ namespace Project2D
         private float screenHeight;
         private float screenWidth;
 
-        public Tank(string tank, string gun, string bullet, float xPos, float yPos) {
-            screenHeight = yPos * 2;
-            screenWidth = xPos * 2;
-            tankTexture = LoadTexture(tank);
-            tankGunTexture = LoadTexture(gun);
-            bulletTexture = LoadTexture(bullet);
-            centerOfTank = new Vector3(tankTexture.width / 2, tankTexture.height / 2, 0);
-            
-            position = new Vector3(xPos - tankTexture.width / 2, yPos - tankTexture.height / 2, 0);
-            
-            gunPosition = new Vector3();
-            gunPositionOffset = centerOfTank + new Vector3 (-tankGunTexture.width/2, 0, 0);
-            Console.WriteLine("Gun offset: " + gunPositionOffset.ToString());
-            gunPosition = position + gunPositionOffset;
+        public Tank(string tank, string gun, string bullet, float xPos, float yPos)
+        {
+          //  transform = new Matrix3();
 
-            tankTranslation = new Matrix3();
-            tankRotation = new Matrix3();
-            tankMatrix = new Matrix3();
+
+        screenHeight = yPos * 2;
+            screenWidth = xPos * 2;
+            //tankTexture = LoadTexture(tank);
+
+
+            Image image = LoadImage(tank);
+            tankTexture = LoadTextureFromImage(image);
+
+            Rotate(-90 * (float)(Math.PI / 180.0f));
+
+            //position = new Vector3(xPos - tankTexture.width / 2, yPos - tankTexture.height / 2, 0);
+            SetPosition(xPos, yPos);
+            // transform.m3 = position.x;
+            // transform.m6 = position.y;
+            // transform.m9 = position.z;
+
+           // topGun = new Gun(gun, tankTexture.width/2, tankTexture.height/2);
+           // UpdateGunTransform();
+
+         //   tankTranslation = new Matrix3();
+         //   tankRotation = new Matrix3();
+         //   tankMatrix = new Matrix3();
+
+            //gunPosition = new Vector3();
+            //gunPositionOffset = centerOfTank + new Vector3(-tankGunTexture.width / 2, 0, 0);
+            //Console.WriteLine("Gun offset: " + gunPositionOffset.ToString());
+            //gunPosition = position + gunPositionOffset;
+
             //new Matrix3(1,0,position.x,
             //                     0,1,position.y,
             //                     0,0,1);
-            gunMatrix = new Matrix3();
-            Console.WriteLine("Matrix");
-            Console.WriteLine(tankMatrix.ToString());
-            Console.WriteLine("position");
-            Console.WriteLine(position.ToString());
+            //gunMatrix = new Matrix3();
+            //Console.WriteLine("Matrix");
+            //Console.WriteLine(tankMatrix.ToString());
+            //Console.WriteLine("position");
+            //Console.WriteLine(position.ToString());
 
 
-            Console.WriteLine("Value " + 10);
-            Console.WriteLine("Degrees " + 10*RAD2DEG);
-            Console.WriteLine("Radiens " + 10*DEG2RAD);
+            //Console.WriteLine("Value " + 10);
+            //Console.WriteLine("Degrees " + 10 * RAD2DEG);
+            //Console.WriteLine("Radiens " + 10 * DEG2RAD);
 
         }
         // MatrixMultiply childs local by parents global
@@ -84,35 +113,57 @@ namespace Project2D
             return bulletTexture;
         }
 
-        public Vector3 GetPosition() {
-            return position ;
+        //public Vector3 GetPosition()
+        //{
+        //    return new Vector3(transform.m3, transform.m6, transform.m9);
+        //}
+
+       // public void UpdateGunTransform()
+       public void UpdateTransform()
+        {
+            globalTransform = localTransform;
+            //topGun.UpdateTransform(globalTransform);
         }
 
-        public Vector3 GetGunPosition()
-        {
-            return gunPosition;//gunPositionOffset + position;
-        }
         public void Move(Vector3 movement, float speed, float deltaTime)
         {
+            //Vector3 newPos = transform * movement * speed * deltaTime;
+            //transform.m3 += newPos.x;
+            //transform.m6 += newPos.y;
+            //transform.m9 = 1;
 
-            tankTranslation = new Matrix3(1.0f, 0.0f, position.x,
+            //UpdateGunTransform();
+
+
+            //tankTranslation = new Matrix3(1.0f, 0.0f, transform.m3,
+            //                             0.0f, 1.0f, transform.m6,
+            //                             0.0f, 0.0f, transform.m9);
+            //tankRotation = new Matrix3();
+            //tankRotation.SetRotateZ(rotation * DEG2RAD);
+
+            //Matrix3 mat = tankTranslation * tankRotation;
+            //transform = tankRotation * transform;
+            // Vector3 newPos = mat * new Vector3(0, movement.y, 1) * speed * deltaTime;
+
+            /*  tankTranslation = new Matrix3(1.0f, 0.0f, position.x,
                                          0.0f, 1.0f, position.y,
                                          0.0f, 0.0f, position.z);
             tankRotation = new Matrix3();
             tankRotation.SetRotateZ(rotation * DEG2RAD);
-           // tankMatrix= tankMatrix 
+            // tankMatrix= tankMatrix 
             Console.WriteLine("tankRotation");
             Console.WriteLine(tankRotation.ToString());
 
             Matrix3 mat = tankTranslation * tankRotation;
-            Vector3 newPos = mat * new Vector3(0, movement.y , 1) * speed * deltaTime;
-            position = position + newPos;
-   
+            transform = tankRotation * transform;
+            Vector3 newPos = mat * new Vector3(0, movement.y, 1) * speed * deltaTime;
+            position = position + newPos;*/
 
-            Vector3 newPosGun = mat * new Vector3(0, movement.y, 1) * speed * deltaTime;
-            gunPosition = gunPosition+ newPosGun;
 
-            ContrainToScreen();
+
+            //  topGun.UpdateGunTransform(mat);
+            //  ContrainToScreen();
+
 
             /*
              *  tankTranslation = new Matrix3(1.0f, 0.0f, position.x,
@@ -143,29 +194,51 @@ namespace Project2D
              */
         }
 
-        private void ContrainToScreen() {
-            if (position.x<0)
-            {
-                position.x = 0;
-            }
-            if (position.x>screenWidth)
-            {
-                position.x = screenWidth;
-            }
-            if (position.y < 0)
-            {
-                position.y = 0;
-            }
-            if (position.y > screenHeight)
-            {
-                position.y = screenHeight;
-            }
-        }
 
-
-        public void Rotate(float rotate, float speed, float deltaTime)
+        public void setRotation(Matrix3 m)
         {
-           rotation += (rotate * DEG2RAD);
+            localTransform.m1 = m.m1;
+            localTransform.m2 = m.m2;
+            localTransform.m2 = m.m3;
+            localTransform.m4 = m.m4;
+            localTransform.m5 = m.m5;
+            localTransform.m6 = m.m6;
+            localTransform.m7 = m.m7;
+            localTransform.m8 = m.m8;
+            localTransform.m9 = m.m9;
+            UpdateTransform();
+        }
+       // public void Rotate(float rotate, float speed, float deltaTime)
+        public void Rotate( float radians)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetRotateZ(radians);
+            setRotation( localTransform * m);
+           
+            /*  float rotate = GetRotation();
+
+              tankTranslation = new Matrix3(1.0f, 0.0f, transform.m3,
+                                          0.0f, 1.0f, transform.m6,
+                                          0.0f, 0.0f, 1.0f);
+              tankRotation = new Matrix3();
+              Console.WriteLine("delta \n" + deltaTime + "\nrotate\n" + rotate);
+              tankRotation.SetRotateZ(deltaTime);
+
+
+             Matrix3 tankRotationTwo = new Matrix3();
+              Console.WriteLine("delta \n" + deltaTime + "\nrotate\n" + rotate);
+              tankRotationTwo.SetRotateZ(rotate);
+              tankRotation = tankRotationTwo * tankRotation;
+
+              Matrix3 mat = transform * tankRotation;
+              mat.m3 = transform.m3;
+              mat.m6 = transform.m6;
+              mat.m9 = 1;
+               transform = mat;
+
+              UpdateGunTransform();*/
+
+            /*rotation += (rotate * DEG2RAD);
 
             tankTranslation = new Matrix3(1.0f, 0.0f, position.x,
                                         0.0f, 1.0f, position.y,
@@ -178,22 +251,18 @@ namespace Project2D
 
             Matrix3 mat = tankTranslation * tankRotation;
             Vector3 newPos = mat * new Vector3(0, 0, 1) * speed * deltaTime;
-           
-            Console.WriteLine("Old Tank Pos: " + position.ToString());
-            position = position + newPos;
-           
-            Console.WriteLine("New Tank Pos: " + position.ToString());
-
-            Vector3 newPosGun = mat * new Vector3(0, 0, 1) * speed * deltaTime;
-
-            Console.WriteLine("Old Gun Pos: " + gunPosition.ToString());
-            Console.WriteLine("gunPositionOffset Pos: " + gunPositionOffset.ToString());
             
-            gunPosition = gunPosition + newPosGun;
-           
-            Console.WriteLine("New Gun Pos: " + gunPosition.ToString());
-           // gunPosition = gunPosition + gunPositionOffset;
-            Console.WriteLine("gun + gunPositionOffset: " + gunPosition.ToString());
+            position = position + newPos;
+            */
+
+
+            //            Vector3 newPosGun = mat * new Vector3(0, 0, 1) * speed * deltaTime;
+
+
+            //  gunPosition = gunPosition + newPosGun;
+
+
+            // gunPosition = gunPosition + gunPositionOffset;
             //Console.WriteLine("Rotation: " + rotation);
             //tankTranslation = new Matrix3(1.0f, 0.0f, position.x,
             //                             0.0f, 1.0f, position.x,
@@ -215,9 +284,46 @@ namespace Project2D
             //gunPositionOffset = gunPositionOffset + movement * speed * deltaTime;
         }
 
-        public float GetRotation() {
-            //Vector3 start = new Vector3(0, 0, 0);
-            return rotation;// start.Dot(position);
+        //public float GetRotation()
+        //{
+        //    float rotation = (float)Math.Atan2(
+        //             transform.m2, transform.m1);
+        //    return rotation;
+        //}
+
+        private void ContrainToScreen()
+        {
+            if (position.x < 0)
+            {
+                position.x = 0;
+            }
+            if (position.x > screenWidth)
+            {
+                position.x = screenWidth;
+            }
+            if (position.y < 0)
+            {
+                position.y = 0;
+            }
+            if (position.y > screenHeight)
+            {
+                position.y = screenHeight;
+            }
+        }
+
+        public void Translate(float x, float y)
+        {
+            //Transform.m7 += x; 
+            //Transform.m8 += y;
+            //Transform.Translate(x,y);
+            //UpdateGunTransform();
+            localTransform.Translate(x, y);
+            UpdateTransform();
+        }
+        public void SetPosition(float x, float y)
+        {
+            localTransform.SetTranslation(x, y);
+            UpdateTransform();
         }
     }
 }
