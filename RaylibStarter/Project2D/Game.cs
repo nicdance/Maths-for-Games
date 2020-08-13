@@ -53,6 +53,35 @@ namespace Project2D
                 Console.WriteLine("Stopwatch high-resolution frequency: {0} ticks per second", Stopwatch.Frequency);
             }
 
+
+            /*
+            // Sets up Tank
+            tankTexture.Load("../Images/tankGreen.png");
+            tankTexture.SetRotate(90 * (float)(Math.PI / 180.0f));
+            tankTexture.SetPosition(-tankTexture.Width, -tankTexture.Height);
+            tankObject.AddChild(tankTexture);
+
+            // sets up Gun
+            gunTexture.Load("../Images/barrelGreen.png");
+            gunTexture.SetRotate(-90 * (float)(Math.PI / 180.0f));
+          //  gunTexture.SetPosition(0, gunTexture.Height / 4.5f);
+            //gunTexture.SetPosition(-gunTexture.Width / 2.0f, 0);
+            //gunTexture.SetPosition(0, gunTexture.Height / 4.5f);
+            // gunTexture.SetPosition(00);
+            gunObject.AddChild(gunTexture);
+            tankObject.AddChild(gunObject);
+
+            //sets up Bullet
+            // bulletObject = new GameObject();
+            // bulletTexture = new ObjectTexture();
+            bulletTexture.SetRotate(90 * (float)(Math.PI / 180.0f));
+            bulletTexture.Load("../Images/bulletGreenSilver_outline.png");
+            //bulletTexture.SetPosition(bulletTexture.Width / 4f, bulletTexture.Height / 4f);
+            bulletTexture.SetPosition(.1f, 0);
+            bulletObject.AddChild(bulletTexture);
+            // gunObject.AddChild(bulletObject);
+            
+            */
             // Sets up Tank
             tankTexture.Load("../Images/tankGreen.png");
             tankTexture.SetRotate(-90 * (float)(Math.PI / 180.0f));
@@ -62,16 +91,23 @@ namespace Project2D
             // sets up Gun
             gunTexture.Load("../Images/barrelGreen.png");
             gunTexture.SetRotate(-90 * (float)(Math.PI / 180.0f));
-            gunTexture.SetPosition(-gunTexture.Width / 2.0f, gunTexture.Height/4.5f);
+            gunTexture.SetPosition(-gunTexture.Width / 2.0f, gunTexture.Height / 4.5f);
+            //gunTexture.SetPosition(-gunTexture.Width / 2.0f, 0);
+            //gunTexture.SetPosition(0, gunTexture.Height / 4.5f);
+           // gunTexture.SetPosition(00);
             gunObject.AddChild(gunTexture);
             tankObject.AddChild(gunObject);
 
             //sets up Bullet
-            bulletObject = new GameObject();
-            bulletTexture = new ObjectTexture();
+           // bulletObject = new GameObject();
+           // bulletTexture = new ObjectTexture();
             bulletTexture.SetRotate(90 * (float)(Math.PI / 180.0f));
-            bulletTexture.Load("../Images/bulletGreenSilver_outline.png");;
+            bulletTexture.Load("../Images/bulletGreenSilver_outline.png");
+            //bulletTexture.SetPosition(bulletTexture.Width / 4f, bulletTexture.Height / 4f);
+            bulletTexture.SetPosition(.1f,0);
             bulletObject.AddChild(bulletTexture);
+            // gunObject.AddChild(bulletObject);
+
 
             // Once the Gun object and Texture is assigned and added as children of the correct objects then set the tanks position.
             // This ensures a flow on effect where all children objects are repositioned.
@@ -115,7 +151,8 @@ namespace Project2D
             }
             if (IsKeyDown(KeyboardKey.KEY_W))
             {
-                Vector3 facing = new Vector3(tankObject.localTransform.m1, tankObject.localTransform.m2, 1) * deltaTime * 100;
+               // Vector3 facing = new Vector3(tankObject.localTransform.m1, tankObject.localTransform.m2, 1) * deltaTime * 100;
+                Vector3 facing = tankObject.Forward *deltaTime * 100;
                 tankObject.Translate(facing.x, facing.y);
             }
             if (IsKeyDown(KeyboardKey.KEY_S))
@@ -123,13 +160,13 @@ namespace Project2D
                 Vector3 facing = new Vector3(tankObject.localTransform.m1, tankObject.localTransform.m2, 1) * deltaTime * -100;
                 tankObject.Translate(facing.x, facing.y);
             }
-            if (IsKeyDown(KeyboardKey.KEY_LEFT_ALT) && bulletCooldown <=0)
+            if (IsKeyDown(KeyboardKey.KEY_LEFT_ALT) && bulletCooldown <= 0)
             {
                 Console.WriteLine("Shoot");
                 bulletObject.UpdateAllTransforms(gunObject.globalTransform);
                 bulletObject.SetPosition(gunObject.globalTransform.m7, gunObject.globalTransform.m8);
                 bulletDirection = new Vector3(gunObject.globalTransform.m1, gunObject.globalTransform.m2, bulletDirection.z);
-               
+
                 bulletCooldown = intialBulletCountdown;
             }
             if (bulletCooldown > 0)
@@ -152,6 +189,8 @@ namespace Project2D
             DrawText(fps.ToString(), 10, 10, 14, Color.RED);
 
             tankObject.Draw();
+            Console.WriteLine(tankObject.localTransform.ToString());
+            DrawCircle((int)tankObject.localTransform.m7, (int)tankObject.localTransform.m8, 5, Color.RED);
 
             EndDrawing();
         }
