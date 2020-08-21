@@ -236,15 +236,15 @@ namespace UnitTestProject
                 new Matrix3(-0.188077f, 0, -0.982154f, 0, 1, 0, 0.982154f, 0, -0.188077f)));
         }
 
-        //[TestMethod]
-        //public void Matrix4SetRotateY()
-        //{
-        //    Matrix4 m4b = new Matrix4();
-        //    m4b.SetRotateY(-2.6f);
+        [TestMethod]
+        public void Matrix4SetRotateY()
+        {
+            Matrix4 m4b = new Matrix4();
+            m4b.SetRotateY(-2.6f);
 
-        //    Assert.IsTrue(compare(m4b,
-        //        new Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1)));
-        //}
+            Assert.IsTrue(compare(m4b,
+                new Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1)));
+        }
 
         [TestMethod]
         public void Matrix3SetRotateZ()
@@ -256,15 +256,15 @@ namespace UnitTestProject
                 new Matrix3(-0.981005f, -0.193984f, 0, 0.193984f, -0.981005f, 0, 0, 0, 1)));
         }
 
-        //[TestMethod]
-        //public void Matrix4SetRotateZ()
-        //{
-        //    Matrix4 m4c = new Matrix4();
-        //    m4c.SetRotateZ(0.72f);
+        [TestMethod]
+        public void Matrix4SetRotateZ()
+        {
+            Matrix4 m4c = new Matrix4();
+            m4c.SetRotateZ(0.72f);
 
-        //    Assert.IsTrue(compare(m4c,
-        //        new Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)));
-        //}
+            Assert.IsTrue(compare(m4c,
+                new Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)));
+        }
 
         [TestMethod]
         public void Vector3MatrixTransform()
@@ -292,31 +292,31 @@ namespace UnitTestProject
                 new Vector3(-22.5994224548f, 44.6950683594f, 862)));
         }
 
-        //[TestMethod]
-        //public void Vector4MatrixTransform()
-        //{
-        //    Matrix4 m4b = new Matrix4();
-        //    m4b.SetRotateY(-2.6f);
+        [TestMethod]
+        public void Vector4MatrixTransform()
+        {
+            Matrix4 m4b = new Matrix4();
+            m4b.SetRotateY(-2.6f);
 
-        //    Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
-        //    Vector4 v4b = m4b * v4a;
+            Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
+            Vector4 v4b = m4b * v4a;
 
-        //    Assert.IsTrue(compare(v4b,
-        //        new Vector4(-455.930236816f, -48.2299995422f, -731.678771973f, 0)));
-        //}
+            Assert.IsTrue(compare(v4b,
+                new Vector4(-455.930236816f, -48.2299995422f, -731.678771973f, 0)));
+        }
 
-        //[TestMethod]
-        //public void Vector4MatrixTransform2()
-        //{
-        //    Matrix4 m4c = new Matrix4();
-        //    m4c.SetRotateZ(0.72f);
+        [TestMethod]
+        public void Vector4MatrixTransform2()
+        {
+            Matrix4 m4c = new Matrix4();
+            m4c.SetRotateZ(0.72f);
 
-        //    Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
-        //    Vector4 v4b = m4c * v4a;
+            Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
+            Vector4 v4b = m4c * v4a;
 
-        //    Assert.IsTrue(compare(v4b,
-        //        new Vector4(41.951499939f, -27.3578968048f, 862, 0)));
-        //}
+            Assert.IsTrue(compare(v4b,
+                new Vector4(41.951499939f, -27.3578968048f, 862, 0)));
+        }
 
         [TestMethod]
         public void Matrix3Multiply()
@@ -378,34 +378,34 @@ namespace UnitTestProject
             Assert.IsTrue(compare(v3c, new Vector3(86.0490112305f, 83.2981109619f, 1)));
         }
 
-        //[TestMethod]
-        //public void Vector4MatrixTranslation()
-        //{
-        //    // homogeneous point translation
-        //    Matrix4 m4b = new Matrix4(1, 0, 0, 0,
-        //                              0, 1, 0, 0,
-        //                              0, 0, 1, 0,
-        //                              55, 44, 99, 1);
+        [TestMethod]
+        public void Vector4MatrixTranslation()
+        {
+            // homogeneous point translation
+            Matrix4 m4b = new Matrix4(1, 0, 0, 0,
+                                      0, 1, 0, 0,
+                                      0, 0, 1, 0,
+                                      55, 44, 99, 1);
 
-        //    Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
+            Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
 
-        //    Vector4 v4c = m4b * v4a;
-        //    Assert.IsTrue(compare(v4c, new Vector4(68.5f, -4.23f, 45, 1)));
-        //}
+            Vector4 v4c = m4b * v4a;
+            Assert.IsTrue(compare(v4c, new Vector4(68.5f, -4.23f, 45, 1)));
+        }
 
-        //[TestMethod]
-        //public void Vector4MatrixTranslation2()
-        //{
-        //    // homogeneous point translation
-        //    Matrix4 m4c = new Matrix4();
-        //    m4c.SetRotateZ(2.2f);
-        //    m4c.m13 = 55; m4c.m14 = 44; m4c.m15 = 99; m4c.m16 = 1;
+        [TestMethod]
+        public void Vector4MatrixTranslation2()
+        {
+            // homogeneous point translation
+            Matrix4 m4c = new Matrix4();
+            m4c.SetRotateZ(2.2f);
+            m4c.m13 = 55; m4c.m14 = 44; m4c.m15 = 99; m4c.m16 = 1;
 
-        //    Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
+            Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
 
-        //    Vector4 v4c = m4c * v4a;
-        //    Assert.IsTrue(compare(v4c, new Vector4(86.0490112305f, 83.2981109619f, 45, 1)));
-        //}
+            Vector4 v4c = m4c * v4a;
+            Assert.IsTrue(compare(v4c, new Vector4(86.0490112305f, 83.2981109619f, 45, 1)));
+        }
 
         [TestMethod]
         public void Vector3MatrixTranslation3()
@@ -422,49 +422,49 @@ namespace UnitTestProject
             Assert.IsTrue(compare(v3b, new Vector3(13.5f, -48.23f, 0)));
         }
 
-        //[TestMethod]
-        //public void Vector3MatrixTranslation4()
-        //{
-        //    // homogeneous point translation
-        //    Matrix3 m3c = new Matrix3();
-        //    m3c.SetRotateZ(2.2f);
-        //    m3c.m7 = 55; m3c.m8 = 44; m3c.m9 = 1;
+        [TestMethod]
+        public void Vector3MatrixTranslation4()
+        {
+            // homogeneous point translation
+            Matrix3 m3c = new Matrix3();
+            m3c.SetRotateZ(2.2f);
+            m3c.m7 = 55; m3c.m8 = 44; m3c.m9 = 1;
 
-        //    Vector3 v3a = new Vector3(13.5f, -48.23f, 0);
+            Vector3 v3a = new Vector3(13.5f, -48.23f, 0);
 
-        //    Vector3 v3c = m3c * v3a;
+            Vector3 v3c = m3c * v3a;
 
-        //    Assert.IsTrue(compare(v3c, new Vector3(31.0490131378f, 39.2981109619f, 0)));
-        //}
+            Assert.IsTrue(compare(v3c, new Vector3(31.0490131378f, 39.2981109619f, 0)));
+        }
 
-        //[TestMethod]
-        //public void Vector4MatrixTranslation3()
-        //{
-        //    // homogeneous point translation
-        //    Matrix4 m4b = new Matrix4(1, 0, 0, 0,
-        //                              0, 1, 0, 0,
-        //                              0, 0, 1, 0,
-        //                              55, 44, 99, 1);
+        [TestMethod]
+        public void Vector4MatrixTranslation3()
+        {
+            // homogeneous point translation
+            Matrix4 m4b = new Matrix4(1, 0, 0, 0,
+                                      0, 1, 0, 0,
+                                      0, 0, 1, 0,
+                                      55, 44, 99, 1);
 
-        //    Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 0);
+            Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 0);
 
-        //    Vector4 v4c = m4b * v4a;
-        //    Assert.IsTrue(compare(v4c, new Vector4(13.5f, -48.23f, -54, 0)));
-        //}
+            Vector4 v4c = m4b * v4a;
+            Assert.IsTrue(compare(v4c, new Vector4(13.5f, -48.23f, -54, 0)));
+        }
 
-        //[TestMethod]
-        //public void Vector4MatrixTranslation4()
-        //{
-        //    // homogeneous point translation
-        //    Matrix4 m4c = new Matrix4();
-        //    m4c.SetRotateZ(2.2f);
-        //    m4c.m13 = 55; m4c.m14 = 44; m4c.m15 = 99; m4c.m16 = 1;
+        [TestMethod]
+        public void Vector4MatrixTranslation4()
+        {
+            // homogeneous point translation
+            Matrix4 m4c = new Matrix4();
+            m4c.SetRotateZ(2.2f);
+            m4c.m13 = 55; m4c.m14 = 44; m4c.m15 = 99; m4c.m16 = 1;
 
-        //    Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 0);
+            Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 0);
 
-        //    Vector4 v4c = m4c * v4a;
-        //    Assert.IsTrue(compare(v4c, new Vector4(31.0490131378f, 39.2981109619f, -54, 0)));
-        //}
+            Vector4 v4c = m4c * v4a;
+            Assert.IsTrue(compare(v4c, new Vector4(31.0490131378f, 39.2981109619f, -54, 0)));
+        }
 
         [TestMethod]
         public void ColourConstructor()

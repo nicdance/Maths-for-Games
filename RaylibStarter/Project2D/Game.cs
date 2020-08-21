@@ -18,11 +18,13 @@ namespace Project2D
         GameObject tankObject = new GameObject();
         GameObject gunObject = new GameObject();
         GameObject bulletObject = new GameObject();
+        GameObject wallObject = new GameObject();
 
         // Holds th e objects texture. This alows the texture to be positioned correctly
         ObjectTexture tankTexture = new ObjectTexture();
         ObjectTexture gunTexture = new ObjectTexture();
         ObjectTexture bulletTexture = new ObjectTexture();
+        ObjectTexture wallTexture = new ObjectTexture();
 
         Stopwatch stopwatch = new Stopwatch();
 
@@ -84,14 +86,17 @@ namespace Project2D
             */
             // Sets up Tank
             tankTexture.Load("../Images/tankGreen.png");
-            tankTexture.SetRotate(-90 * (float)(Math.PI / 180.0f));
-            tankTexture.SetPosition(-tankTexture.Width / 2.0f, tankTexture.Height / 2.0f);
+            //tankTexture.SetRotate(-90 * (float)(Math.PI / 180.0f));
+            //tankTexture.SetPosition(-tankTexture.Width / 2.0f, tankTexture.Height / 2.0f);
+            tankTexture.SetRotate(90 * (float)(Math.PI / 180.0f));
+            tankTexture.SetPosition(tankTexture.Width / 2.0f, -tankTexture.Height / 2.0f);
             tankObject.AddChild(tankTexture);
 
             // sets up Gun
             gunTexture.Load("../Images/barrelGreen.png");
-            gunTexture.SetRotate(-90 * (float)(Math.PI / 180.0f));
-            gunTexture.SetPosition(-gunTexture.Width / 2.0f, gunTexture.Height / 4.5f);
+            gunTexture.SetRotate(90 * (float)(Math.PI / 180.0f));
+            gunTexture.SetPosition(gunTexture.Height    , -gunTexture.Width / 2);
+            //gunTexture.SetPosition(-gunTexture.Width / 2.0f, gunTexture.Height / 4.5f);
             //gunTexture.SetPosition(-gunTexture.Width / 2.0f, 0);
             //gunTexture.SetPosition(0, gunTexture.Height / 4.5f);
            // gunTexture.SetPosition(00);
@@ -102,6 +107,7 @@ namespace Project2D
            // bulletObject = new GameObject();
            // bulletTexture = new ObjectTexture();
             bulletTexture.SetRotate(90 * (float)(Math.PI / 180.0f));
+            bulletTexture.SetPosition(10*bulletTexture.Height, -bulletTexture.Width);
             bulletTexture.Load("../Images/bulletGreenSilver_outline.png");
             //bulletTexture.SetPosition(bulletTexture.Width / 4f, bulletTexture.Height / 4f);
             bulletTexture.SetPosition(.1f,0);
@@ -112,6 +118,11 @@ namespace Project2D
             // Once the Gun object and Texture is assigned and added as children of the correct objects then set the tanks position.
             // This ensures a flow on effect where all children objects are repositioned.
             tankObject.SetPosition(GetScreenWidth() / 2, GetScreenHeight() / 2);
+
+            wallTexture.Load("../Images/tankRed.png");
+            wallTexture.SetPosition(wallTexture.Width / 2.0f, -wallTexture.Height / 2.0f);
+            wallObject.AddChild(wallTexture);
+            wallObject.SetPosition(50, 150);
         }
 
         public void Shutdown()
@@ -189,7 +200,8 @@ namespace Project2D
             DrawText(fps.ToString(), 10, 10, 14, Color.RED);
 
             tankObject.Draw();
-            Console.WriteLine(tankObject.localTransform.ToString());
+            wallObject.Draw();
+           // Console.WriteLine(tankObject.localTransform.ToString());
             DrawCircle((int)tankObject.localTransform.m7, (int)tankObject.localTransform.m8, 5, Color.RED);
 
             EndDrawing();
