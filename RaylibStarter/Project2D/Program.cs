@@ -13,8 +13,8 @@ namespace Project2D
     {
         static void Main(string[] args)
         {
+             //CollisionTest game = new CollisionTest();
             Game game = new Game();
-
             InitWindow(640, 480, "Tank World");
 
             game.Init();
