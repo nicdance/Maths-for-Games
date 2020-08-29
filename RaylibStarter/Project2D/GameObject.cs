@@ -20,10 +20,14 @@ namespace Project2D
         public Matrix3 localTransform = new Matrix3();                  // Objects local position. Used for offsetting child objects
         public Matrix3 globalTransform = new Matrix3();                 // Objects position in world space
 
+
+        public bool isHit= false;
+
         public Vector3 Forward
         {
             get { return new Vector3(localTransform.m1, localTransform.m2, 1); }
         }
+
 
         // If the child has a parent  this funciton will offset their global Position to that of the parent. 
         // Then it calls this function on each child to  ensure all objects move as a group in correct positions

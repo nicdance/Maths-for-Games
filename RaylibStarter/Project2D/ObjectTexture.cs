@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using static Raylib.Raylib;
 using Raylib;
 using System.Runtime.CompilerServices;
+using MathClasses;
+using Vector3 = MathClasses.Vector3;
+using Matrix3 = MathClasses.Matrix3;
 
 namespace Project2D
 {
@@ -14,7 +17,24 @@ namespace Project2D
     class ObjectTexture : GameObject
     {
         Texture2D texture = new Texture2D();
-        
+
+
+        // Property to return the minimum of the Assigned Texture
+        public Vector3 min
+        {
+            get { return new Vector3(globalTransform.m7, globalTransform.m8, globalTransform.m9 ); }
+        }
+
+
+        // Property to return the minimum of the Assigned Texture
+        public Vector3 max
+        {
+            get { return new Vector3(globalTransform.m7+Width, globalTransform.m8+Height, globalTransform.m9); }
+        }
+
+
+
+
         // Property to return the Width of the Assigned Texture
         public float Width
         {

@@ -9,6 +9,8 @@ using static Raylib.Raylib;
 using MathClasses;
 using Vector3 = MathClasses.Vector3;
 using Matrix3 = MathClasses.Matrix3;
+using System.Security.Cryptography.X509Certificates;
+using System.Runtime.CompilerServices;
 
 namespace Project2D
 {
@@ -65,6 +67,9 @@ namespace Project2D
             gunTexture.Load("./Images/barrelGreen.png");
             gunTexture.SetRotate(90 * (float)(Math.PI / 180.0f));
             gunTexture.SetPosition(gunTexture.Height, -gunTexture.Width / 2);
+
+            // Once the Gun object and Texture is assigned and added as children of the correct objects then set the tanks position.
+            // This ensures a flow on effect where all children objects are repositioned.
             gunObject.AddChild(gunTexture);
             tankObject.AddChild(gunObject);
 
@@ -76,14 +81,15 @@ namespace Project2D
             bulletObject.AddChild(bulletTexture);
 
 
-            // Once the Gun object and Texture is assigned and added as children of the correct objects then set the tanks position.
-            // This ensures a flow on effect where all children objects are repositioned.
+            
             tankObject.SetPosition(GetScreenWidth() / 2, GetScreenHeight() / 2);
 
             wallTexture.Load("./Images/tankRed.png");
             wallTexture.SetPosition(wallTexture.Width / 2.0f, -wallTexture.Height / 2.0f);
             wallObject.AddChild(wallTexture);
-            wallObject.SetPosition(50, 150);
+            wallObject.SetPosition(100, 150);
+         //   wallObject.Rotate(1f);
+
         }
 
         public void Shutdown()
@@ -128,28 +134,45 @@ namespace Project2D
             }
             if (IsKeyDown(KeyboardKey.KEY_S))
             {
-                Vector3 facing = new Vector3(tankObject.localTransform.m1, tankObject.localTransform.m2, 1) * deltaTime * -100;
+                Vector3 facing = tankObject.Forward * deltaTime * -100;
                 tankObject.Translate(facing.x, facing.y);
             }
             if (IsKeyDown(KeyboardKey.KEY_SPACE) && bulletCooldown <= 0)
             {
-                Console.WriteLine("Shoot");
+                bulletTexture.isHit = false;
                 bulletObject.UpdateAllTransforms(gunObject.globalTransform);
-                bulletObject.SetPosition(gunObject.globalTransform.m7, gunObject.globalTransform.m8);
+                bulletObject.SetPosition(gunTexture.globalTransform.m7, gunTexture.globalTransform.m8);
                 bulletDirection = new Vector3(gunObject.globalTransform.m1, gunObject.globalTransform.m2, bulletDirection.z);
 
                 bulletCooldown = intialBulletCountdown;
             }
             if (bulletCooldown > 0)
             {
+                if (Collisions.CheckCollision(bulletTexture, wallTexture) && !wallTexture.isHit)
+                {
+
+                    Console.WriteLine("wallTexture");
+                    Console.WriteLine(wallTexture.min.ToString());
+                    Console.WriteLine("bulletTexture");
+                    Console.WriteLine(bulletTexture.min.ToString());
+                    positionWall();
+                        if (Collisions.CheckCollision(tankTexture, wallTexture))
+                    {
+                        positionWall();
+                    }
+                    //wallTexture.isHit = true;
+                    bulletTexture.isHit = true;
+                }
                 bulletObject.Translate(bulletDirection.x * bulletSpeed, bulletDirection.y * bulletSpeed);
                 bulletCooldown -= deltaTime;
-                bulletTexture.Draw();
 
             }
         }
 
-
+        public void positionWall() {
+            Random rand = new Random();
+            wallObject.SetPosition(rand.Next(50,550), rand.Next(50, 400)); 
+        }
 
         public void Draw()
         {
@@ -159,10 +182,28 @@ namespace Project2D
 
             DrawText(fps.ToString(), 10, 10, 14, Color.RED);
 
+
+            // If bullet has been fired andhasn't it target draw bullet.
+            if (bulletCooldown > 0 && !bulletTexture.isHit)
+            {
+                bulletTexture.Draw();
+            }
+
+            // Draws the tank  objects.
             tankObject.Draw();
-            wallObject.Draw();
-            // Console.WriteLine(tankObject.localTransform.ToString());
-            DrawCircle((int)tankObject.localTransform.m7, (int)tankObject.localTransform.m8, 5, Color.RED);
+
+
+            // If wall has not been hit. draw walll
+            if (!wallTexture.isHit)
+            {
+                wallObject.Draw();
+            }
+
+            // Draws a circle at the center of the tank so I can check if ti si pivoting correctly
+            DrawCircle((int)tankObject.globalTransform.m7, (int)tankObject.globalTransform.m8, 5, Color.RED);
+            DrawCircle((int)tankTexture.globalTransform.m7, (int)tankTexture.globalTransform.m8, 5, Color.GREEN);
+            DrawCircle((int)wallTexture.globalTransform.m7, (int)wallTexture.globalTransform.m8, 5, Color.BLUE);
+            DrawCircle((int)bulletTexture.globalTransform.m7, (int)bulletTexture.globalTransform.m8, 5, Color.ORANGE);
 
             EndDrawing();
         }
