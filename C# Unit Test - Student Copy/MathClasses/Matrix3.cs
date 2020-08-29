@@ -27,9 +27,9 @@ namespace MathClasses
             //m1 = v1; m2 = v2; m3 = v3;
             //m4 = v4; m5 = v5; m6 = v6;
             //m7 = v7; m8 = v8; m9 = v9;
-            m1 = v1; m4 = v2; m7 = v3;
-            m2 = v2; m5 = v5; m8 = v6;
-            m3 = v3; m6 = v8; m9 = v9;
+            m1 = v1; m4 = v4; m7 = v7;
+            m2 = v2; m5 = v5; m8 = v8;
+            m3 = v3; m6 = v6; m9 = v9;
         }
 
         public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
@@ -101,9 +101,9 @@ namespace MathClasses
             //m4 = 0; m5 = (float)Math.Cos(value); m6 = (float)Math.Sin(value);
             //m7 = 0; m8 = (float)-Math.Sin(value); m9 = (float)Math.Cos(value);
 
-            m1 = 1; m3 = 0; m7 = 0;
-            m2 = 0; m5 = (float)Math.Cos(value); m8 = (float)-Math.Sin(value);
-            m3 = 0; m6 = (float)Math.Sin(value); m9 = (float)Math.Cos(value);
+            m1 = 1; m3 = 0;                         m7 = 0;
+            m2 = 0; m5 = (float)Math.Cos(value);    m8 = (float)-Math.Sin(value);
+            m3 = 0; m6 = (float)Math.Sin(value);    m9 = (float)Math.Cos(value);
 
         }
         //soh 
@@ -116,9 +116,9 @@ namespace MathClasses
             //m4 = 0;                       m5 = 1; m6 = 0;
             //m7 = (float)Math.Sin(value); m8 = 0; m9 = (float)Math.Cos(value);
 
-            m1 = (float)Math.Cos(value); m4 = 0; m4 = (float)Math.Sin(value);
-            m2 = 0; m5 = 1; m7 = 0;
-            m3 = (float)-Math.Sin(value); m6 = 0; m9 = (float)Math.Cos(value);
+            m1 = (float)Math.Cos(value);    m4 = 0;     m7 = (float)Math.Sin(value);
+            m2 = 0;                         m5 = 1;     m8 = 0;
+            m3 = (float)-Math.Sin(value);   m6 = 0;     m9 = (float)Math.Cos(value);
         }
 
         public void SetRotateZ(float value)
@@ -127,9 +127,9 @@ namespace MathClasses
             //m4 = (float)-Math.Sin(value); m5 = (float)Math.Cos(value); m6 = 0;
             //m7 = 0; m8 = 0; m9 = 1;
 
-            m1 = (float)Math.Cos(value); m4 = (float)-Math.Sin(value); m7 = 0;
-            m2 = (float)Math.Sin(value); m5 = (float)Math.Cos(value); m8 = 0;
-            m3 = 0; m6 = 0; m9 = 1;
+            m1 = (float)Math.Cos(value);    m4 = (float)-Math.Sin(value);   m7 = 0;
+            m2 = (float)Math.Sin(value);    m5 = (float)Math.Cos(value);    m8 = 0;
+            m3 = 0;                         m6 = 0;                         m9 = 1;
         }
 
         public void Set(Matrix3 m)

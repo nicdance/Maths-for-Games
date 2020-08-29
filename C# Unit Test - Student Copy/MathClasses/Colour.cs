@@ -61,5 +61,10 @@ namespace MathClasses
             colour |= (UInt32)alpha << 0;
         }
 
+        public void ShiftRedToGreen()
+        {
+            colour = (colour & 0xFF000000) >> 8;
+        }
+
     }
 }

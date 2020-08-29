@@ -10,141 +10,47 @@ namespace MathClasses
     {
         static void Main(string[] args)
         {
-            byte red = 255;
-            byte green = 200;
-            byte blue = 150;
-            byte alpha = 2;
-
-            Colour colour = new Colour();
-            colour.SetRed(red);
-            colour.SetGreen(green);
-            colour.SetBlue(blue);
-            colour.SetAlpha(alpha);
-
-            Console.WriteLine("Set Red too " + red + ". Retreived: " + colour.GetRed());
-            Console.WriteLine("Set Green too " + green + ". Retreived: " + colour.GetGreen());
-            Console.WriteLine("Set Blue too " + blue + ". Retreived: " + colour.GetBlue());
-            Console.WriteLine("Set Alpha too " + alpha + ". Retreived: " + colour.GetAlpha());
-
-
-            colour.SetBlue(red);
-            Console.WriteLine("Set Red too " + red + ". Retreived: " + colour.GetRed());
-            Console.WriteLine("Set Green too " + green + ". Retreived: " + colour.GetGreen());
-            Console.WriteLine("Set Blue too " + blue + ". Retreived: " + colour.GetBlue());
-            Console.WriteLine("Set Alpha too " + alpha + ". Retreived: " + colour.GetAlpha());
+            
+            Console.WriteLine("Matrix3SetRotateZ");
+            Matrix3 m3 = new Matrix3();
+            m3.SetRotateZ(9.62f);
+            Console.WriteLine("Result");
+            Console.WriteLine(m3.ToString());
+            Matrix3 m = new Matrix3(-0.981005f, -0.193984f, 0, 0.193984f, -0.981005f, 0, 0, 0, 1);
+            Console.WriteLine("Expected");
+            Console.WriteLine(m.ToString());
             Console.ReadKey();
 
 
-            Console.WriteLine("RotateY");
-            Matrix3 m3b = new Matrix3();
-            m3b.SetRotateY(1.76f);
-            Console.WriteLine(m3b.ToString());
-            Console.WriteLine();
-            Matrix3 rotateY = new Matrix3(-0.188077f, 0, -0.982154f, 0, 1, 0, 0.982154f, 0, -0.188077f);
-            Console.WriteLine(rotateY.ToString());
-            Console.WriteLine();
-
-
-            Console.WriteLine("RotateZ");
-            Matrix3 m3e = new Matrix3();
-            m3e.SetRotateZ(9.62f);
-            Console.WriteLine(m3e.ToString());
-            Console.WriteLine();
-            Matrix3 yVal = new Matrix3(-0.981005f, -0.193984f, 0, 0.193984f, -0.981005f, 0, 0, 0, 1);
-            Console.WriteLine(yVal.ToString());
-            Console.WriteLine();
-
-
-            Console.WriteLine("Matrix3Multiply");
+            Console.WriteLine("Matrix3SetRotateX");
             Matrix3 m3a = new Matrix3();
+
             m3a.SetRotateX(3.98f);
+
+            Console.WriteLine("Result");
             Console.WriteLine(m3a.ToString());
-            Console.WriteLine();
-            Matrix3 m3c = new Matrix3();
-            m3c.SetRotateZ(9.62f);
-            Console.WriteLine(m3c.ToString());
-            Console.WriteLine();
-
-
-            Console.WriteLine("result");
-            Matrix3 m3d = m3a * m3c;
-            Console.WriteLine(m3d.ToString());
-            Console.WriteLine();
-            Console.WriteLine("expectes result");
-            Matrix3 m3f = new Matrix3(-0.981004655361f, 0.129707172513f, 0.14424264431f, 0.193984255195f, 0.655946731567f, 0.729454636574f, 0, 0.743579149246f, -0.668647944927f);
-            Console.WriteLine(m3f.ToString());
-            Console.WriteLine();
-            Console.ReadKey();
-
-
-            Matrix4 m4a = new Matrix4();
-            m4a.SetRotateX(4.5f);
-
-            Matrix4 m4b =new Matrix4(1, 0, 0, 0, 0, -0.210796f, -0.97753f, 0, 0, 0.97753f, -0.210796f, 0, 0, 0, 0, 1);
-
-
-            Console.WriteLine("Matrix4 Rotate X");
-            Console.WriteLine("result");
-            Console.WriteLine(m4a.ToString());
-            Console.WriteLine();
-            Console.WriteLine(m4b.ToString());
-            Console.WriteLine();
-            Console.WriteLine("expecte result");
-            Console.WriteLine();
-            Console.ReadKey();
-
-
-            Console.WriteLine("Matrix4SetRotateZ()");
-            Matrix4 m4z = new Matrix4();
-            m4z.SetRotateZ(0.72f);
-
-            Console.WriteLine("result");
-            Console.WriteLine(m4z.ToString());
-            Console.WriteLine();
-            Matrix4 m4z2 = new Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-
-            Console.WriteLine(" Expected result");
-            Console.WriteLine(m4z2.ToString());
-            Console.WriteLine();
+            Matrix3 ma = new Matrix3(1, 0, 0, 0, -0.668648f, -0.743579f, 0, 0.743579f, -0.668648f);
+            Console.WriteLine("Expected");
+            Console.WriteLine(ma.ToString());
             Console.ReadKey();
 
 
 
-            Console.WriteLine("Matrix4SetRotateY()");
-            Matrix4 m4y = new Matrix4();
-            m4y.SetRotateY(-2.6f);
 
-            Console.WriteLine("result");
-            Console.WriteLine(m4y.ToString());
-            Console.WriteLine();
-            Matrix4 m4y2 = new Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1);
 
-            Console.WriteLine(" Expected result");
-            Console.WriteLine(m4y.ToString());
-            Console.WriteLine();
+
+            Console.WriteLine("Vector3MatrixTransform");
+            Matrix3 m3b = new Matrix3();
+
+            m3b.SetRotateY(1.76f);
+            Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
+            Vector3 v3b = m3b * v3a;
+            Console.WriteLine("Result");
+            Console.WriteLine(v3b.ToString());
+            Vector3 v = new Vector3(844.077941895f, -48.2299995422f, -175.38130188f);
+            Console.WriteLine("Expected");
+            Console.WriteLine(v.ToString());
             Console.ReadKey();
-
-
-
-            Matrix4 m4c = new Matrix4();
-            m4c.SetRotateY(-2.6f);
-
-            Matrix4 m4d = new Matrix4();
-            m4d.SetRotateZ(0.72f);
-
-            Matrix4 m4e = m4d * m4c;
-
-            Matrix4 m4f =new Matrix4(-0.644213855267f, -0.565019249916f, 0.515501439571f, 0, -0.659384667873f, 0.751805722713f, 0, 0, -0.387556940317f, -0.339913755655f, -0.856888711452f, 0, 0, 0, 0, 1);
-            Console.WriteLine("Matrix4 *");
-            Console.WriteLine("result");
-            Console.WriteLine(m4e.ToString());
-            Console.WriteLine();
-            Console.WriteLine(m4f.ToString());
-            Console.WriteLine();
-            Console.WriteLine("expecte result");
-            Console.WriteLine();
-            Console.ReadKey();
-
 
         }
     }
