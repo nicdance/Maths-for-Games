@@ -10,7 +10,26 @@ namespace MathClasses
     {
         static void Main(string[] args)
         {
-            
+
+
+
+            Console.WriteLine("Matrix3Multiply");
+            Matrix3 m3aa = new Matrix3();
+            m3aa.SetRotateX(3.98f);
+
+            Matrix3 m3c = new Matrix3();
+            m3c.SetRotateZ(9.62f);
+
+            Matrix3 m3d = m3aa * m3c;
+
+            Console.WriteLine("Result");
+            Console.WriteLine(m3d.ToString());
+            Matrix3 ma3 = new Matrix3(-0.981004655361f, 0.129707172513f, 0.14424264431f, 0.193984255195f, 0.655946731567f, 0.729454636574f, 0, 0.743579149246f, -0.668647944927f);
+            Console.WriteLine("Expected");
+            Console.WriteLine(ma3.ToString());
+            Console.ReadKey();
+
+
             Console.WriteLine("Matrix3SetRotateZ");
             Matrix3 m3 = new Matrix3();
             m3.SetRotateZ(9.62f);
@@ -51,6 +70,24 @@ namespace MathClasses
             Console.WriteLine("Expected");
             Console.WriteLine(v.ToString());
             Console.ReadKey();
+
+
+            Console.WriteLine("ShiftRedToGreen");
+            Console.WriteLine("Result");
+            Colour c = new Colour();
+            c.SetRed(0x5E);
+            Console.WriteLine(c.GetGreen());
+            Console.WriteLine(c.GetRed());
+            Console.WriteLine(c.colour);
+            c.ShiftRedToGreen();
+            Console.WriteLine(c.GetGreen());
+            Console.WriteLine(c.GetRed());
+            Console.WriteLine(c.colour);
+            Console.WriteLine("Expected");
+            uint newC = 0x005E0000;
+            Console.WriteLine(newC);
+            Console.ReadKey();
+
 
         }
     }

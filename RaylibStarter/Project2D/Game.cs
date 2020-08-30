@@ -156,7 +156,7 @@ namespace Project2D
                     Console.WriteLine("bulletTexture");
                     Console.WriteLine(bulletTexture.min.ToString());
                     positionWall();
-                        if (Collisions.CheckCollision(tankTexture, wallTexture))
+                    while (Collisions.CheckCollision(tankTexture, wallTexture))
                     {
                         positionWall();
                     }
