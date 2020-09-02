@@ -146,15 +146,10 @@ namespace Project2D
 
                 bulletCooldown = intialBulletCountdown;
             }
-            if (bulletCooldown > 0)
+            if (bulletCooldown > 0 && !bulletTexture.isHit)
             {
                 if (Collisions.CheckCollision(bulletTexture, wallTexture) && !wallTexture.isHit)
                 {
-
-                    Console.WriteLine("wallTexture");
-                    Console.WriteLine(wallTexture.min.ToString());
-                    Console.WriteLine("bulletTexture");
-                    Console.WriteLine(bulletTexture.min.ToString());
                     positionWall();
                     while (Collisions.CheckCollision(tankTexture, wallTexture))
                     {
@@ -165,7 +160,10 @@ namespace Project2D
                 }
                 bulletObject.Translate(bulletDirection.x * bulletSpeed, bulletDirection.y * bulletSpeed);
                 bulletCooldown -= deltaTime;
-
+            }
+            if (bulletTexture.isHit) {
+                bulletCooldown = -1f;
+                bulletTexture.isHit = false;
             }
         }
 
