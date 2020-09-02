@@ -41,23 +41,24 @@ namespace MathClasses
              *  m3 m6 m9	m3 m6 m9
              */
 
-            float valueOne = lhs.m1 * rhs.m1 + lhs.m2 * rhs.m4 + lhs.m3 * rhs.m7;
-            float valueTwo = lhs.m1 * rhs.m2 + lhs.m2 * rhs.m5 + lhs.m3 * rhs.m8;
-            float valueThree = lhs.m1 * rhs.m3 + lhs.m2 * rhs.m6 + lhs.m3 * rhs.m9; 
+            //float valueOne = lhs.m1 * rhs.m1 + lhs.m2 * rhs.m4 + lhs.m3 * rhs.m7;
+            //float valueTwo = lhs.m1 * rhs.m2 + lhs.m2 * rhs.m5 + lhs.m3 * rhs.m8;
+            //float valueThree = lhs.m1 * rhs.m3 + lhs.m2 * rhs.m6 + lhs.m3 * rhs.m9; 
 
 
-            float valueFour = lhs.m4 * rhs.m1 + lhs.m5 * rhs.m4 + lhs.m6 * rhs.m7;
-            float valueFive = lhs.m4 * rhs.m2 + lhs.m5 * rhs.m5 + lhs.m6 * rhs.m8;
-            float valueSix = lhs.m4 * rhs.m3 + lhs.m5 * rhs.m6 + lhs.m6 * rhs.m9;
+            //float valueFour = lhs.m4 * rhs.m1 + lhs.m5 * rhs.m4 + lhs.m6 * rhs.m7;
+            //float valueFive = lhs.m4 * rhs.m2 + lhs.m5 * rhs.m5 + lhs.m6 * rhs.m8;
+            //float valueSix = lhs.m4 * rhs.m3 + lhs.m5 * rhs.m6 + lhs.m6 * rhs.m9;
 
 
-            float valueSeven = lhs.m7 * rhs.m1 + lhs.m8* rhs.m4 + lhs.m9 * rhs.m7;
-            float valueEight = lhs.m7 * rhs.m2 + lhs.m8 * rhs.m5 + lhs.m9 * rhs.m8;
-            float valueNine = lhs.m7 * rhs.m3 + lhs.m8 * rhs.m6 + lhs.m9 * rhs.m9;
+            //float valueSeven = lhs.m7 * rhs.m1 + lhs.m8* rhs.m4 + lhs.m9 * rhs.m7;
+            //float valueEight = lhs.m7 * rhs.m2 + lhs.m8 * rhs.m5 + lhs.m9 * rhs.m8;
+            //float valueNine = lhs.m7 * rhs.m3 + lhs.m8 * rhs.m6 + lhs.m9 * rhs.m9;
 
-            return new Matrix3( valueOne, valueFour, valueSeven,
-                                valueTwo, valueFive, valueEight,
-                                valueThree, valueSix, valueNine);
+            //return new Matrix3( valueOne, valueFour, valueSeven,
+            //                    valueTwo, valueFive, valueEight,
+            //                    valueThree, valueSix, valueNine);
+
 
 
             /* L            R
@@ -66,19 +67,19 @@ namespace MathClasses
            *  m7 m8 m9	m7 m8 m9
            */
 
-            //float valueOne = rhs.m1 * lhs.m1 + rhs.m2 * lhs.m4 + rhs.m3 * lhs.m7;
-            //float valueTwo = rhs.m1 * lhs.m2 + rhs.m2 * lhs.m5 + rhs.m3 * lhs.m8;
-            //float valueThree = rhs.m1 * lhs.m3 + rhs.m2 * lhs.m6 + rhs.m3 * lhs.m9;
-            //float valueFour = rhs.m4 * lhs.m1 + rhs.m5 * lhs.m4 + rhs.m6 * lhs.m7;
-            //float valueFive = rhs.m4 * lhs.m2 + rhs.m5 * lhs.m5 + rhs.m6 * lhs.m8;
-            //float valueSix = rhs.m4 * lhs.m3 + rhs.m5 * lhs.m6 + rhs.m6 * lhs.m9;
-            //float valueSeven = rhs.m7 * lhs.m1 + rhs.m8 * lhs.m4 + rhs.m9 * lhs.m7;
-            //float valueEight = rhs.m7 * lhs.m2 + rhs.m8 * lhs.m5 + rhs.m9 * lhs.m8;
-            //float valueNine = rhs.m7 * lhs.m3 + rhs.m8 * lhs.m6 + rhs.m9 * lhs.m9;
+            float valueOne = rhs.m1 * lhs.m1 + rhs.m2 * lhs.m4 + rhs.m3 * lhs.m7;
+            float valueTwo = rhs.m1 * lhs.m2 + rhs.m2 * lhs.m5 + rhs.m3 * lhs.m8;
+            float valueThree = rhs.m1 * lhs.m3 + rhs.m2 * lhs.m6 + rhs.m3 * lhs.m9;
+            float valueFour = rhs.m4 * lhs.m1 + rhs.m5 * lhs.m4 + rhs.m6 * lhs.m7;
+            float valueFive = rhs.m4 * lhs.m2 + rhs.m5 * lhs.m5 + rhs.m6 * lhs.m8;
+            float valueSix = rhs.m4 * lhs.m3 + rhs.m5 * lhs.m6 + rhs.m6 * lhs.m9;
+            float valueSeven = rhs.m7 * lhs.m1 + rhs.m8 * lhs.m4 + rhs.m9 * lhs.m7;
+            float valueEight = rhs.m7 * lhs.m2 + rhs.m8 * lhs.m5 + rhs.m9 * lhs.m8;
+            float valueNine = rhs.m7 * lhs.m3 + rhs.m8 * lhs.m6 + rhs.m9 * lhs.m9;
 
-            //return new Matrix3(valueOne, valueTwo, valueThree,
-            //                   valueFour, valueFive, valueSix,
-            //                   valueSeven, valueEight, valueNine);
+            return new Matrix3(valueOne, valueTwo, valueThree,
+                               valueFour, valueFive, valueSix,
+                               valueSeven, valueEight, valueNine);
         }
 
         public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
