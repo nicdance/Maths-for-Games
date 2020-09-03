@@ -3,11 +3,9 @@ D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\UnitTestProject.dll
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\UnitTestProject.pdb
-D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\MathClasses.exe
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\MathClasses.pdb
-D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\MathClasses.exe.config
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\obj\Debug\UnitTestProject.csprojAssemblyReference.cache
@@ -15,3 +13,5 @@ D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\obj\Debug\
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\obj\Debug\UnitTestProject.dll
 D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\obj\Debug\UnitTestProject.pdb
+D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\MathClasses.exe
+D:\GitHub\Maths for Games\C# Unit Test - Student Copy\UnitTestProject\bin\Debug\MathClasses.exe.config
