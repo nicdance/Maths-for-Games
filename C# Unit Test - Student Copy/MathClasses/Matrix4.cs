@@ -18,7 +18,7 @@ namespace MathClasses
             m13= 0; m14= 0; m15= 0; m16= 1;
         }
 
-        //public Matrix3(float v1, float v4, float v7, float v2, float v5, float v8, float v3, float v6, float v9)
+        // Matrix 4 consturctor
         public Matrix4( float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8, 
                         float v9, float v10, float v11, float v12, float v13, float v14, float v15, float v16)
         {
@@ -29,6 +29,7 @@ namespace MathClasses
 
         }
 
+        // Overrides the * operator Between2 Matrix4
         public static Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)
         {
 
@@ -72,6 +73,7 @@ namespace MathClasses
          *  9  10 11 12 z
          *  13 14 15 16 w
          */
+        // Overrides the * operator Between a Matrix4 and Vector 4
         public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
         {
             float valueOne = (lhs.m1 * rhs.x) + (lhs.m5 * rhs.y) + (lhs.m9 * rhs.z) + (lhs.m13 * rhs.w);
@@ -82,11 +84,13 @@ namespace MathClasses
         }
 
 
+        // Overrides the * operator Between a Matrix4 and Vector 4 if the Vecotr came first
         public static Vector4 operator *(Vector4 lhs, Matrix4 rhs)
         {
             return rhs * lhs;
         }
 
+        // rotates the MAtrix on the X
         public void SetRotateX(float value)
         {
             m1  = 1;  m2 =  0;                       m3 = 0;                        m4 = 0;
@@ -98,6 +102,8 @@ namespace MathClasses
         //cah 
         //toa
 
+
+        // rotates the MAtrix on the Y
         public void SetRotateY(float value)
         {
             m1 = (float)Math.Cos(value);  m2 = 0; m3 = (float)-Math.Sin(value); m4 = 0;
@@ -106,6 +112,8 @@ namespace MathClasses
             m13 = 0;                      m14= 0; m15= 0;                       m16= 1;
         }
 
+
+        // rotates the MAtrix on the Z
         public void SetRotateZ(float value)
         {
             m1 = (float)Math.Cos(value); m2 = (float)Math.Sin(value); m3 = 0; m4 = 0;
@@ -115,6 +123,7 @@ namespace MathClasses
 
         }
 
+        // Override the ToString for testing.
         public override string ToString()
         {
 

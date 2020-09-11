@@ -10,6 +10,7 @@ namespace MathClasses
     {
         public float x, y, z, w;
 
+        // Default Vector4 constructor
         public Vector4()
         {
             x = 0;
@@ -18,6 +19,7 @@ namespace MathClasses
             w = 0;
         }
 
+        // Vector 4 constructor passing values
         public Vector4(float _x, float _y, float _z, float _w)
         {
             x = _x;
@@ -82,6 +84,7 @@ namespace MathClasses
             return (x * x + y * y + z * z + w * w);
         }
 
+        // Calculate the Cross
         public Vector4 Cross(Vector4 vectorToCross)
         {
             return new Vector4(
@@ -92,6 +95,7 @@ namespace MathClasses
                               );
         }
 
+        // calculate the dotproduct
         public float Dot(Vector4 vectorToDot)
         {
             return x * vectorToDot.x +
@@ -100,6 +104,7 @@ namespace MathClasses
                     w * vectorToDot.w;
         }
 
+        //Normalises the values
         public void Normalize()
         {
             float m = Magnitude();

@@ -83,6 +83,7 @@ namespace MathClasses
             return (x * x + y * y + z * z);
         }
 
+        // Cross 2 this vector with another
         public Vector3 Cross(Vector3 vectorToCross)
         {
             return new Vector3(
@@ -92,6 +93,7 @@ namespace MathClasses
                               );
         }
 
+        // Get the Dot  of the Vectoria
         public float Dot(Vector3 vectorToDot)
         {
             return  x*vectorToDot.x + 
@@ -99,12 +101,14 @@ namespace MathClasses
                     z*vectorToDot.z;
         }
 
+        // Normalise the vectora
         public void Normalize() {
             float m = Magnitude();
             this.x /= m;
             this.y /= m;
             this.z /= m;
         }
+        // to String override for testing
         public override string ToString()
         {
 
